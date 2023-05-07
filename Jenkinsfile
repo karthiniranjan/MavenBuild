@@ -22,9 +22,9 @@ node('') {
 	stage ('Deployment'){
 		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
 // 		cp target/*.war /root/sample/sample.war
-		sh "echo "Deployed""
-		sh "ll"
-		sh "cp target/java-example.war /root/sample/sample.war"
+		sh '''
+		cp target/java-example.war /root/sample/sample.war
+		'''
 	}
 	
 	stage ('Notification'){
