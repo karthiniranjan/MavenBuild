@@ -23,7 +23,7 @@ node('') {
 		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
 // 		cp target/*.war /root/sample/sample.war
 		sh "echo "Deployed""
-		sh "ls -la"
+		sh "ll"
 		sh "cp target/java-example.war /root/sample/sample.war"
 	}
 	
