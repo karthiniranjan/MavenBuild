@@ -18,14 +18,16 @@ node('') {
 	stage ('Archive Artifacts'){
 		archiveArtifacts artifacts: 'target/*.war'
 	}
-	
-	stage ('Deployment'){
-		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
-// 		cp target/*.war /root/sample/sample.war
+	stage ('Docker Build'){
 		sh '''
-		ls -la
-		whoami
-		cp target/java-example.war /var/lib/jenkins/sample/sample.war
+		docker build . -t sample:war
+		'''
+	}
+	stage ('Deployment'){
+		sh '''
+		docker run -it -d -p 8081:8080 --name sample-container sample:war
+		sleep 20 && docker ps
+		docker ps -a
 		'''
 	}
 	
