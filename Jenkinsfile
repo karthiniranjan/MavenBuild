@@ -25,7 +25,7 @@ node('') {
 		sh '''
 		ls -la
 		whoami
-		cp target/java-example.war /root/sample/sample.war
+		cp target/java-example.war /var/lib/jenkins/sample/sample.war
 		'''
 	}
 	
