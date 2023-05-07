@@ -21,7 +21,8 @@ node('') {
 	
 	stage ('Deployment'){
 		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
-		cp target/*.war /root/sample/sample.war
+// 		cp target/*.war /root/sample/sample.war
+		echo "Deployed"
 	}
 	
 	stage ('Notification'){
