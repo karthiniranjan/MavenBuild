@@ -23,6 +23,8 @@ node('') {
 		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
 // 		cp target/*.war /root/sample/sample.war
 		sh '''
+		ls -la
+		whoami
 		cp target/java-example.war /root/sample/sample.war
 		'''
 	}
