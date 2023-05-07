@@ -20,7 +20,8 @@ node('') {
 	}
 	
 	stage ('Deployment'){
-		ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
+		//ansiblePlaybook colorized: true, disableHostKeyChecking: true, playbook: 'deploy.yml'
+		cp target/*.war /root/sample/sample.war
 	}
 	
 	stage ('Notification'){
